@@ -10,10 +10,6 @@ import {
   Alert,
 } from "react-native";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import { Ionicons } from "@expo/vector-icons";
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -25,11 +21,19 @@ export default class Login extends Component {
 
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed " + viewId);
+    // this.props.navigation.navigate("UserPage");
   };
 
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
+        <View style={styles.welcomeContainer}>
+          <Image
+            source={require("../assets/images/logo_actory.png")}
+            style={styles.welcomeImage}
+          />
+        </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputs}
@@ -52,7 +56,7 @@ export default class Login extends Component {
 
         <TouchableHighlight
           style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.onClickListener("login")}
+          onPress={() => this.props.navigation.navigate("TopNav")}
         >
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
@@ -119,5 +123,17 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: "white",
+  },
+  welcomeContainer: {
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  welcomeImage: {
+    width: 300,
+    height: 250,
+    resizeMode: "contain",
+    marginTop: 3,
+    marginLeft: -10,
   },
 });
