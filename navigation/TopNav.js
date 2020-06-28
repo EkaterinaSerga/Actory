@@ -10,20 +10,30 @@ export default function TopNav(props) {
     <Tab.Navigator
       initialRouteName="SideMenu"
       tabBarOptions={{
-        labelStyle: { fontSize: 12 },
-        tabStyle: { width: 100 },
-        style: { backgroundColor: "powderblue" },
+        flex: 1,
+        justifyContent: "space-between",
+        alignItems: "center",
+        labelStyle: { fontSize: 16 },
+        activeTintColor: "#6A706E",
+        inactiveTintColor: "#76CEC4",
+        showIcon: "true",
+        pressColor: "#76CEC4",
+        tabStyle: { fontWeight: "bold" },
+        style: { fontWeight: "bold" },
+        fontWeight: "bold",
       }}
     >
       <Tab.Screen
         name="SideMenu"
         component={SideMenu}
-        options={{ tabBarLabel: "SideMenu" }}
+        options={{
+          tabBarLabel: "Side Menu",
+        }}
       />
       <Tab.Screen
         name="MyAccount"
         component={MyAccount}
-        options={{ tabBarLabel: "MyAccount" }}
+        options={{ tabBarLabel: "My Account" }}
       />
     </Tab.Navigator>
   );
