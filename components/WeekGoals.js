@@ -8,8 +8,8 @@ import {
   CheckBox,
 } from "react-native";
 
-export default function WeekGoals(props) {
-  const [tasks] = useState([
+export default function WeekGoals() {
+  const [tasks, setTasks] = useState([
     { name: "wash my cat", duration: 0.5, key: "1" },
     { name: "write essay", duration: 2, key: "2" },
     { name: "make presentation for the class tomorrow", duration: 3, key: "3" },
@@ -19,7 +19,16 @@ export default function WeekGoals(props) {
     { name: "go on a date", duration: 4, key: "7" },
     { name: "go on a date", duration: 4, key: "8" },
     { name: "go on a date", duration: 4, key: "9" },
+    { name: "go on a date", duration: 4, key: "10" },
+    { name: "go on a date", duration: 4, key: "11" },
   ]);
+
+  const pressHandler = (key) => {
+    console.log("I got to pressHandler!!!");
+    setTasks((prevTasks) => {
+      return prevTasks.filter((task) => task.key != key);
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -45,9 +54,16 @@ export default function WeekGoals(props) {
           renderItem={({ item }) => (
             <View style={styles.taskItem}>
               <View
-                style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+                style={{
+                  flex: 1,
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
               >
-                <CheckBox title="Click Here" />
+                <CheckBox
+                  onValueChange={() => pressHandler(item.key)}
+                  title="Click Here"
+                />
                 <Text key={item.key}>{item.name}</Text>
               </View>
 
@@ -64,10 +80,10 @@ export default function WeekGoals(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
-    justifyContent: "flex-start",
+    height: "100%",
   },
   header: {
     alignItems: "center",
@@ -76,10 +92,8 @@ const styles = StyleSheet.create({
     height: 75,
   },
   icons: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    height: 300,
   },
   timeImage: {
     padding: 10,
