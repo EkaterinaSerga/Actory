@@ -6,6 +6,7 @@ import SideMenu from "../components/SideMenu";
 const Tab = createMaterialTopTabNavigator();
 
 export default function TopNav(props) {
+  console.log("TOP NAV PROPS", props.navigation);
   return (
     <Tab.Navigator
       initialRouteName="SideMenu"
@@ -14,20 +15,26 @@ export default function TopNav(props) {
         justifyContent: "space-between",
         alignItems: "center",
         labelStyle: { fontSize: 16 },
-        activeTintColor: "#6A706E",
-        inactiveTintColor: "#76CEC4",
+        activeTintColor: "#76CEC4",
+        inactiveTintColor: "#FFFFFF",
         showIcon: "true",
         pressColor: "#76CEC4",
-        tabStyle: { fontWeight: "bold" },
-        style: { fontWeight: "bold" },
-        fontWeight: "bold",
+        style: { backgroundColor: "#6A706E", weight: 1500 },
+      }}
+      screenOptions={{
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
       }}
     >
       <Tab.Screen
         name="SideMenu"
         component={SideMenu}
         options={{
-          tabBarLabel: "Side Menu",
+          tabBarLabel: "Goal Keeper",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
       />
       <Tab.Screen

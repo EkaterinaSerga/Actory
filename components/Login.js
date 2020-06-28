@@ -25,7 +25,7 @@ export default class Login extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log("LOGIN PROPS", this.props);
     return (
       <View style={styles.container}>
         <View style={styles.welcomeContainer}>

@@ -11,6 +11,8 @@ import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import Login from "./components/Login";
 import UserPage from "./components/UserPage";
 import TopNav from "./navigation/TopNav";
+import WeekGoals from "./components/WeekGoals";
+import SideMenu from "./components/SideMenu";
 import LinkingConfiguration from "./navigation/LinkingConfiguration";
 
 const Stack = createStackNavigator();
@@ -33,6 +35,8 @@ export default function App(props) {
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="UserPage" component={UserPage} />
             <Stack.Screen name="TopNav" component={TopNav} />
+            <Stack.Screen name="SideMenu" component={SideMenu} />
+            <Stack.Screen name="WeekGoals" component={WeekGoals} />
           </Stack.Navigator>
         </NavigationContainer>
         <StatusBar style="auto" />

@@ -6,16 +6,20 @@ import {
   Image,
   TouchableHighlight,
 } from "react-native";
+import WeekGoals from "./WeekGoals";
 
-export default function SideMenu() {
+export default function SideMenu(props) {
+  console.log("SIDE MENU PROPS", props.navigation);
   return (
     <View style={styles.container}>
-      <TouchableHighlight>
+      <TouchableHighlight
+        onPress={() => props.navigation.navigate("WeekGoals")}
+      >
         <View style={styles.weekContainer}>
           <Image
             source={require("../assets/images/plus.png")}
             style={styles.plusImage}
-            onPress={() => this.props.navigation.navigate("WeekGoals")}
+            onPress={() => props.navigation.navigate("WeekGoals")}
           />
           <Text style={styles.weekText}>WEEK</Text>
         </View>
